@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs'); %>
+</head>
+
+<body class="container">
+
+<header>
+</header>
+
+<main>
+    <div class="container">
+
+        <header>
+            <%- include('./partials/header.ejs'); %>
+        </header>
+     
+       
+        <form action="/add" method="POST">
+            <legend>Agregar una tarea</legend><br>
+            <div class="form-group">
+                <input type="text" placeholder="Título" id="titulo" class="form-control" name="titulo">
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Descripción" class="form-control" name="descripcion" rows="1" cols="80"></textarea>
+            </div>
+            <button class="btn btn-primary">Agregar</button>
+        </form>
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < tareas.length; i++){ %>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><strong><%= tareas[i].titulo %></strong></td>
+                    <td><strong><%= tareas[i].descripcion %></strong></td>
+                    <td>
+                        <a class="<%= tareas[i].status ? 'btn btn-success': 'btn btn-dark' %>" href="/hecho/<%= tareas[i]._id %>">Hecho</a>
+                        <a id="eliminar" class="btn btn-danger" href="/eliminar/<%= tareas[i]._id %>">Eliminar</a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+
+<script>
+    document.getElementById('titulo').focus();
+    document.getElementById('eliminar').addEventListener('click', (e)=>{
+        let response = confirm('¿Estás seguro que quieres eliminar esta tarea?');
+        if(!response){
+            e.preventDefault();
+        }
+    });
+</script>
+
+</html>
