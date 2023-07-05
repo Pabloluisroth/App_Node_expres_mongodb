@@ -1,11 +1,11 @@
 # CRUD-mongodb-express-ejs
 **CRUD (Crear, Leer, Actualizar y Borrar)** mongodb, express y ejs
 
-### Use and installation
+### Uso é instalacion
 
-Install modules: `npm install`
-Start: `node app.js`
+Instalacion de modulos: `npm install`
+ejecutar aplicacion: `node app.js`
 
-RUN in: **127.0.0.1:3000**
+Servidor ejecutandose: **127.0.0.1:3000**
 
-![screenshot](https://raw.githubusercontent.com/christivn/CRUD-mongodb-express-ejs/master/screenshot.png)
+![screenshot](https://github.com/Pabloluisroth/App_Node_expres_mongodb/blob/main/screenshot.png)
